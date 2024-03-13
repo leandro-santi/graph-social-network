@@ -49,5 +49,7 @@ public class Graph {
                 }
             }
         }
+
+        System.out.println("\nSearch ended!\n");
     }
 }
