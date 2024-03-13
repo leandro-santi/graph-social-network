@@ -1,4 +1,6 @@
 import algorithms.Graph;
+import javafx.util.Pair;
+import network.Post;
 import network.UserVertex;
 
 import java.time.LocalDateTime;
@@ -36,18 +38,31 @@ public class Main {
         graphNetwork.addEdge(userVertex2, userVertex3);
         graphNetwork.addEdge(userVertex2, userVertex4);
         graphNetwork.addEdge(myUser, userVertex1);
+        graphNetwork.addEdge(myUser, userVertex2);
 
         // Network graph relations
-        System.out.println("Showing all network relations from my user:");
+        System.out.println("Showing all network graph relations from my user:");
         graphNetwork.BFS(myUser);
 
-        System.out.println(myUser.createPost(LocalDateTime.now(),
-                "Eu sou apaixonado pela Alinezinha!").toString(myUser.getUsername()));
-        System.out.println(myUser.createPost(LocalDateTime.now(),
-                "Eu sou apaixonadoo pela Alinezinha!").toString(myUser.getUsername()));
-        System.out.println(myUser.createPost(LocalDateTime.now(),
-                "Eu sou apaixonadoo pela Alinezinha!").toString(myUser.getUsername()));
-        System.out.println(myUser.getMural().size());
+        userVertex1.createPost(LocalDateTime.now(),
+                "Eae galera!").toString(userVertex1.getUsername());
+
+        userVertex2.createPost(LocalDateTime.now().plusSeconds(-5),
+                "Olá galerinha!").toString(userVertex2.getUsername());
+
+        userVertex2.createPost(LocalDateTime.now().plusSeconds(5),
+                "Eae user1!").toString(userVertex2.getUsername());
+
+        myUser.createPost(LocalDateTime.now().plusSeconds(10),
+                "Hmmmm!").toString(myUser.getUsername());
+
+        userVertex1.createPost(LocalDateTime.now().plusSeconds(7),
+                "Eae user2!").toString(userVertex1.getUsername());
+
+        // Showing my post's mural (My user and my added friends)
+        for (Pair<String, Post> post : myUser.returnFriendsPosts()) {
+            System.out.println(post.getValue().toString(post.getKey()));
+        }
 
     }
 }

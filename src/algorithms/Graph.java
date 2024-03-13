@@ -24,6 +24,8 @@ public class Graph {
     public void addEdge(UserVertex u, UserVertex v) {
         adjList.get(u).add(v);
         adjList.get(v).add(u);
+        u.addFriend(v);
+        v.addFriend(u);
     }
 
     public void BFS(UserVertex start) {
