@@ -10,7 +10,7 @@ public class Main {
 
         // Local user
         UserVertex myUser = new UserVertex(
-                "leomeister", "anime123", "email@gmail.com", "tururu");
+                "leomeister", "anime123", "email@gmail.com", "tuturu");
 
         // Creates users
         UserVertex userVertex1 = new UserVertex(
@@ -59,8 +59,18 @@ public class Main {
         userVertex1.createPost(LocalDateTime.now().plusSeconds(7),
                 "Eae user2!").toString(userVertex1.getUsername());
 
-        // Showing my post's mural (My user and my added friends)
+        userVertex3.createPost(LocalDateTime.now().plusSeconds(15),
+                "Salve!").toString(userVertex3.getUsername());
+
+        // Showing my mural posts (My user and my added friends)
         for (Pair<String, Post> post : myUser.returnFriendsPosts()) {
+            System.out.println(post.getValue().toString(post.getKey()));
+        }
+
+        System.out.println("\nGlobal feed:");
+
+        // Showing network global mural posts
+        for (Pair<String, Post> post : graphNetwork.returnNetworkPosts()) {
             System.out.println(post.getValue().toString(post.getKey()));
         }
 

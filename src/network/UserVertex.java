@@ -1,13 +1,15 @@
 package network;
 
 import javafx.util.Pair;
+import util.CollectPosts;
+import util.Sort;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class UserVertex {
+public class UserVertex implements Sort {
 
     private String username;
     private String password;
@@ -66,12 +68,7 @@ public class UserVertex {
     }
 
     public List<Pair<String, Post>> returnFriendsPosts() {
-        List<Pair<String, Post>> friendsPosts = new ArrayList<>();
-        for (UserVertex friend : friendships) {
-            for (Post post : friend.getMural()) {
-                friendsPosts.add(new Pair<>(friend.getUsername(), post));
-            }
-        }
+        List<Pair<String, Post>> friendsPosts = CollectPosts.returnPosts(friendships);
 
         // Adding my posts in the mural list
         for (Post post : mural) {
@@ -91,6 +88,7 @@ public class UserVertex {
         return mural;
     }
 
+    @Override
     public List<Pair<String, Post>> getMuralAscending(List<Pair<String, Post>> pairs) {
         List<Pair<String, Post>> muralAscending = new ArrayList<>(pairs);
         muralAscending.sort(Comparator.comparing(pair -> pair.getValue().getDate()));

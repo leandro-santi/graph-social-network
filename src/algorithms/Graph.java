@@ -1,10 +1,14 @@
 package algorithms;
 
+import javafx.util.Pair;
+import network.Post;
 import network.UserVertex;
+import util.CollectPosts;
+import util.Sort;
 
 import java.util.*;
 
-public class Graph {
+public class Graph implements Sort {
 
     private final Map<UserVertex, List<UserVertex>> adjList; // Adjacent list x -> y, z, w
     private final Set<UserVertex> vertices; // All vertices that exist
@@ -53,5 +57,18 @@ public class Graph {
         }
 
         System.out.println("\nSearch ended!\n");
+    }
+
+    public List<Pair<String, Post>> returnNetworkPosts() {
+        List<Pair<String, Post>> networkPosts = CollectPosts.returnPosts(new ArrayList<>(vertices));
+
+        return getMuralAscending(networkPosts);
+    }
+
+    @Override
+    public List<Pair<String, Post>> getMuralAscending(List<Pair<String, Post>> pairs) {
+        List<Pair<String, Post>> muralAscending = new ArrayList<>(pairs);
+        muralAscending.sort(Comparator.comparing(pair -> pair.getValue().getDate()));
+        return muralAscending;
     }
 }
