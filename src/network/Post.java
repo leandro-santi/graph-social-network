@@ -1,6 +1,7 @@
 package network;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Post {
     private final LocalDateTime date;
@@ -20,6 +21,8 @@ public class Post {
     }
 
     public String toString(String username) {
-        return "@" + username + " said: " + text + " (" + date + ")";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
+        String formattedDateTime = date.format(formatter);
+        return "@" + username + " said: " + text + " (" + formattedDateTime + ")";
     }
 }

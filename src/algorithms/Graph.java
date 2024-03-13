@@ -56,7 +56,7 @@ public class Graph implements Sort {
             }
         }
 
-        System.out.println("\nSearch ended!\n");
+        System.out.println("... Search ended!");
     }
 
     public List<Pair<String, Post>> returnNetworkPosts() {

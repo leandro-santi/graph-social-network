@@ -60,15 +60,15 @@ public class Main {
                 "Eae user2!").toString(userVertex1.getUsername());
 
         userVertex3.createPost(LocalDateTime.now().plusSeconds(15),
-                "Salve!").toString(userVertex3.getUsername());
+                "Alguém online?").toString(userVertex3.getUsername());
 
+        System.out.println("\nFriend's feed:");
         // Showing my mural posts (My user and my added friends)
         for (Pair<String, Post> post : myUser.returnFriendsPosts()) {
             System.out.println(post.getValue().toString(post.getKey()));
         }
 
         System.out.println("\nGlobal feed:");
-
         // Showing network global mural posts
         for (Pair<String, Post> post : graphNetwork.returnNetworkPosts()) {
             System.out.println(post.getValue().toString(post.getKey()));
