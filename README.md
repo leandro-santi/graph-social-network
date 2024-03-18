@@ -24,6 +24,10 @@ Anteiku is a console-based prototype of a social network to demonstrate how it w
 - Java 8+
 - IntelliJ IDEA
 
+#### Class diagram:
+
+![Diagram](src/resources/diagram.png)
+
 ## How to use
 
 There is no user input.
