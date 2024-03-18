@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Post {
+
     private final LocalDateTime date;
     private final String text;
 
@@ -25,4 +26,5 @@ public class Post {
         String formattedDateTime = date.format(formatter);
         return "@" + username + " said: " + text + " (" + formattedDateTime + ")";
     }
+
 }

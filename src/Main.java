@@ -6,13 +6,14 @@ import network.UserVertex;
 import java.time.LocalDateTime;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        // Local user
+        // Creating Local user
         UserVertex myUser = new UserVertex(
                 "leomeister", "anime123", "email@gmail.com", "tuturu");
 
-        // Creates users
+        // Creating other users
         UserVertex userVertex1 = new UserVertex(
                 "Fulano", "anime123", "email@gmail.com", "tuturu");
         UserVertex userVertex2 = new UserVertex(
@@ -40,10 +41,6 @@ public class Main {
         graphNetwork.addEdge(myUser, userVertex1);
         graphNetwork.addEdge(myUser, userVertex2);
 
-        // Network graph relations
-        System.out.println("Showing all network graph relations from my user:");
-        graphNetwork.BFS(myUser);
-
         userVertex1.createPost(LocalDateTime.now(),
                 "Eae galera!").toString(userVertex1.getUsername());
 
@@ -51,28 +48,33 @@ public class Main {
                 "Olá galerinha!").toString(userVertex2.getUsername());
 
         userVertex2.createPost(LocalDateTime.now().plusSeconds(5),
-                "Eae user1!").toString(userVertex2.getUsername());
+                "Eae Fulano!").toString(userVertex2.getUsername());
 
         myUser.createPost(LocalDateTime.now().plusSeconds(10),
                 "Hmmmm!").toString(myUser.getUsername());
 
         userVertex1.createPost(LocalDateTime.now().plusSeconds(7),
-                "Eae user2!").toString(userVertex1.getUsername());
+                "Eae Beltrano!").toString(userVertex1.getUsername());
 
         userVertex3.createPost(LocalDateTime.now().plusSeconds(15),
                 "Alguém online?").toString(userVertex3.getUsername());
 
-        System.out.println("\nFriend's feed:");
+        // Network graph relations
+        System.out.println("Showing all network graph relations from my user:");
+        graphNetwork.BFS(myUser);
+
         // Showing my mural posts (My user and my added friends)
+        System.out.println("\nFriend's feed:");
         for (Pair<String, Post> post : myUser.returnFriendsPosts()) {
             System.out.println(post.getValue().toString(post.getKey()));
         }
 
-        System.out.println("\nGlobal feed:");
         // Showing network global mural posts
+        System.out.println("\nGlobal feed:");
         for (Pair<String, Post> post : graphNetwork.returnNetworkPosts()) {
             System.out.println(post.getValue().toString(post.getKey()));
         }
 
     }
+
 }

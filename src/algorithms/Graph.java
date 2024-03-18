@@ -71,4 +71,5 @@ public class Graph implements Sort {
         muralAscending.sort(Comparator.comparing(pair -> pair.getValue().getDate()));
         return muralAscending;
     }
+
 }
