@@ -1,7 +1,9 @@
-import algorithms.Graph;
+package com.solitudeworks.graph;
+
+import com.solitudeworks.graph.algorithms.Graph;
 import javafx.util.Pair;
-import network.Post;
-import network.UserVertex;
+import com.solitudeworks.graph.network.Post;
+import com.solitudeworks.graph.network.UserVertex;
 
 import java.time.LocalDateTime;
 

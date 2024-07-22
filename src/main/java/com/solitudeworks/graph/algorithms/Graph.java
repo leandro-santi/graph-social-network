@@ -1,10 +1,10 @@
-package algorithms;
+package com.solitudeworks.graph.algorithms;
 
 import javafx.util.Pair;
-import network.Post;
-import network.UserVertex;
-import util.CollectPosts;
-import util.Sort;
+import com.solitudeworks.graph.network.Post;
+import com.solitudeworks.graph.network.UserVertex;
+import com.solitudeworks.graph.util.CollectPosts;
+import com.solitudeworks.graph.util.Sort;
 
 import java.util.*;
 

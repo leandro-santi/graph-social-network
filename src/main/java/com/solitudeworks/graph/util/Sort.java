@@ -1,7 +1,7 @@
-package util;
+package com.solitudeworks.graph.util;
 
 import javafx.util.Pair;
-import network.Post;
+import com.solitudeworks.graph.network.Post;
 
 import java.util.List;
 

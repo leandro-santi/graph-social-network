@@ -1,8 +1,8 @@
-package network;
+package com.solitudeworks.graph.network;
 
 import javafx.util.Pair;
-import util.CollectPosts;
-import util.Sort;
+import com.solitudeworks.graph.util.CollectPosts;
+import com.solitudeworks.graph.util.Sort;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
